@@ -1,10 +1,20 @@
 package com.example.springBoot2.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
     private String name;
     private int year;
     private String author;
     private int pages;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     public Book() {
     }
@@ -47,4 +57,10 @@ public class Book {
     public void setPages(int pages) {
         this.pages = pages;
     }
+
+    public int getId() {return id;}
+
+    public void setId(int id){this.id = id; }
+
+
 }

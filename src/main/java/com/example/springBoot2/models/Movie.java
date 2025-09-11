@@ -1,10 +1,20 @@
 package com.example.springBoot2.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Movie  {
     private String name;
     private int year;
     private String director;
     private int runtime;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     public Movie() {
     }
@@ -47,4 +57,8 @@ public class Movie  {
     public void setRuntime(int runtime) {
         this.runtime = runtime;
     }
+
+    public int getId() { return id;}
+
+    public void setId(int id){ this.id = id;}
 }
